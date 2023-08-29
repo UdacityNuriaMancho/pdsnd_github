@@ -193,20 +193,20 @@ def display_raw_data(df):
     max_rows = pd.options.display.max_rows
     print("Initial max_rows value : " + str(pd.options.display.max_rows))
 
-    while i<=max_rows #True:            
-        if raw == 'no':
+    while True:            
+        if answer == 'no':
             break
-        elif raw == 'yes':
+        elif answer == 'yes':
             # TO DO: appropriately subset/slice your dataframe to display next five rows
             pd.set_option("display.max_rows", i)
             print(df1)       
             
             # TO DO: convert the user input to lower case using lower() function
-            raw = input('\nWould you like to show the next 5 rows from data? Enter yes or no.\n').lower()
+            answer = input('\nWould you like to show the next 5 rows from data? Enter yes or no.\n').lower()
            
             i += 5
         else:
-            raw = input("\nYour input is invalid. Please enter only 'yes' or 'no'\n").lower()
+            answer = input("\nYour input is invalid. Please enter only 'yes' or 'no'\n").lower()
             
 def main():
     while True:
