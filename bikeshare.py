@@ -148,33 +148,33 @@ def user_stats(df):
     print('Counts of users type:\n{user_types}\n'.format(user_types = df.groupby(['User Type'])['User Type'].count()))
                                                                          
     # TO DO: Display counts of gender
-    print('Counts of users gender:')
+    #print('Counts of users gender:')
     try:
-          print('{gender}\n'.format(gender = df.groupby(['Gender'])['Gender'].count()))
+          print('Counts of users gender: {gender}\n'.format(gender = df.groupby(['Gender'])['Gender'].count()))
     except:
           print('It´s no possible to found information about users gender')
           
     # TO DO: Display earliest, most recent, and most common year of birth
     #earliest
-    print('The earliest year or bith is:')
+    #print('The earliest year or bith is:')
     try:
-          print('{earliest_year}\n'.format(earliest_year = int(df['Birth Year']).min()))
+        print('The earliest year or bith is: {earliest_year}\n'.format(earliest_year = df.groupby(['Birth Year'])['Birth Year']).min())
     except:
-          print('It´s no possible to found information about the earliest year of birth\n')
+        print('It´s no possible to found information about the earliest year of birth\n')
             
     #most recent  
-    print('The most recent year or bith is:')
+    #print('The most recent year or bith is:')
     try:
-          print('{most_recent_year}\n'.format(most_recent_year = int(df['Birth Year']).max()))
+        print('The most recent year or bith is: {most_recent_year}\n'.format(most_recent_year = df.groupby(['Birth Year'])['Birth Year']).max())
     except:
-          print('It´s no possible to found information about the most recent year of birth\n')
+        print('It´s no possible to found information about the most recent year of birth\n')
 
     #most common
-    print('The most common year or bith is:')
+    #print('The most common year or bith is:')    
     try:
-          print('{most_common_year}\n'.format(most_common_year = int(df['Birth Year']).mean()))
+        print('The most common year or bith is: {most_common_year}\n'.format(most_common_year = int(df['Birth Year'].mode()[0])))            
     except:
-          print('It´s no possible to found information about the most common year of birth\n')
+        print('It´s no possible to found information about the most common year of birth\n')
     
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40) 
@@ -191,22 +191,22 @@ def display_raw_data(df):
     
     #pd.set_option('display.max_columns',200)
     max_rows = pd.options.display.max_rows
-    print("Initial max_rows value : " + str(pd.options.display.max_rows))
+    #print("Initial max_rows value : " + str(pd.options.display.max_rows))
 
-    while i<=max_rows #True:            
-        if raw == 'no':
+    while True:            
+        if answer == 'no':
             break
-        elif raw == 'yes':
+        elif answer == 'yes':
             # TO DO: appropriately subset/slice your dataframe to display next five rows
             pd.set_option("display.max_rows", i)
             print(df1)       
             
             # TO DO: convert the user input to lower case using lower() function
-            raw = input('\nWould you like to show the next 5 rows from data? Enter yes or no.\n').lower()
+            answer = input('\nWould you like to show the next 5 rows from data? Enter yes or no.\n').lower()
            
             i += 5
         else:
-            raw = input("\nYour input is invalid. Please enter only 'yes' or 'no'\n").lower()
+            answer = input("\nYour input is invalid. Please enter only 'yes' or 'no'\n").lower()
             
 def main():
     while True:

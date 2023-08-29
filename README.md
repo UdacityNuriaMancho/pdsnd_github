@@ -26,4 +26,5 @@ ISources:
 
 https://docs.python.org/3/library/
 https://www.geeksforgeeks.org/pandas-set_option-function-in-python
+https://favtutor.com/blogs/min-max-python#:~:text=What%20is%20max()%20and,sets%2C%20and%20dictionaries%20in%20Python.
 
